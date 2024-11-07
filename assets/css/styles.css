@@ -1,9 +1,16 @@
+/* link figma: https://www.figma.com/design/Zs7vjnMWc3jj09J94gr57L/01.-Real-Estate-Landing-Page-(Easy)-(1)?node-id=2-334&node-type=frame&m=dev */
+
 * {
     box-sizing: border-box;
 }
 
 :root {
     --primary-color: #0f1b4c;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
 }
 
 html {
@@ -52,16 +59,29 @@ a {
 }
 
 /*====================Header======================= */
-.header {
-    height: 100vh;
+.fixed-header {
     background: #e6f0ff;
+    padding-top: 26px;
+    position: sticky;
+    top: -26px;
+    z-index: 1;
+}
+
+.hero-wrap {
+    height: calc(100vh - 90px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     position: relative;
+    background: #e6f0ff;
 }
 
 .navbar {
     display: flex;
     align-items: center;
-    padding-top: 38px;
+    /* padding-top: 38px; */
+    padding: 12px 0;
+    /* background-color: orange; */
 }
 
 .navbar ul {
@@ -96,16 +116,11 @@ a {
     border-radius: 8px;
 }
 
-.hero {
-    margin-top: 130px;
-    display: flex;
-}
-
-.hero .info {
+.hero-wrap .info {
     width: 51%;
 }
 
-.hero .sub-title {
+.hero-wrap .sub-title {
     font-weight: 500;
     font-size: 1.8rem;
     line-height: 1.5rem;
@@ -113,7 +128,7 @@ a {
     color: #687690;
 }
 
-.hero .title {
+.hero-wrap .title {
     margin-top: 8px;
     font-size: 6.2rem;
     font-weight: 700;
@@ -121,7 +136,7 @@ a {
     color: #000336;
 }
 
-.hero .desc {
+.hero-wrap .desc {
     margin-top: 30px;
     font-size: 1.8rem;
     font-weight: 400;
@@ -129,12 +144,12 @@ a {
     color: #5a6473;
 }
 
-.hero .hero-cta {
+.hero-wrap .hero-cta {
     min-width: 170px;
     margin-top: 40px;
 }
 
-.hero .hero-img {
+.hero-wrap .hero-img {
     position: absolute;
     bottom: 0;
     right: calc((100vw - 1110px) / 2 - 100px);
@@ -164,10 +179,22 @@ a {
 }
 
 .clients .images {
-    margin-top: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.clients .images a {
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    height: 90px;
+    padding: 0 42px;
+    border-radius: 12px;
+}
+
+.clients .images a:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 /*====================Guides======================= */
@@ -611,10 +638,11 @@ a {
     align-items: center;
     justify-content: center;
     border-radius: 3px;
+    background-color: #f9f9f9;
 }
 
-.footer .social-link:hover {
-    background-color: #f9f9f9;
+.footer .social-link + .social-link {
+    margin-left: 16px;
 }
 
 .footer .row-bottom {
